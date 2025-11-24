@@ -2,6 +2,16 @@
   {
     "id": 2,
     "name": "Gaming Mouse",
-    "price": 59
+    "price": 47
+  },
+  {
+    "id": 3,
+    "name": "Laptop",
+    "price": 999
+  },
+  {
+    "id": 4,
+    "name": "Laptop",
+    "price": 999
   }
 ]

@@ -1,22 +1,18 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
-app.use(express.json()); // allows JSON in requests
+app.use(express.json());
+app.use(require("./middleware/logger"));
 
-// Import user routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/users", userRoutes);
+app.use("/users", require("./routes/userRoutes"));
+app.use("/products", require("./routes/productRoutes"));
 
-// Import product routes
-const productRoutes = require("./routes/productRoutes");
-app.use("/products", productRoutes);
+app.get("/", (req, res) => res.send("API is running"));
 
-// Basic homepage endpoint
-app.get("/", (req, res) => {
-  res.send("REST API is running...");
+app.use(require("./middleware/errorHandler"));
+
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Server running on http://localhost:${process.env.PORT}`);
 });
 
-// Start server
-app.listen(5000, () => {
-  console.log("Server listening on http://localhost:5000");
-});

@@ -1,10 +1,14 @@
 [
   {
     "id": 1,
-    "name": "John Doe"
+    "name": "John Doe",
+    "email": "john@example.com",
+    "passwordHash": "$2a$10$..."
   },
   {
     "id": 2,
-    "name": "Alice"
+    "name": "Test User",
+    "email": "test@example.com",
+    "passwordHash": "$2b$10$KlTBrv/S6Q5lm7jJkW7INerMMttKg9fkYB5e.Sp/PAQvgQnfuztP2"
   }
 ]

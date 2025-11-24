@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+const authRoutes = require("./routes/authRoutes");
 require("dotenv").config();
 
 app.use(express.json());
 app.use(require("./middleware/logger"));
 
+app.use("/auth", authRoutes);
 app.use("/users", require("./routes/userRoutes"));
 app.use("/products", require("./routes/productRoutes"));
 

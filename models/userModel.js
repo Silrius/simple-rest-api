@@ -9,4 +9,19 @@ async function saveUsers(users) {
   await writeJSON(USERS_PATH, users);
 }
 
-module.exports = { getAllUsers, saveUsers };
+async function findUserByEmail(email) {
+  const users = await getAllUsers();
+  return users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase());
+}
+
+async function findUserById(id) {
+  const users = await getAllUsers();
+  return users.find(u => u.id === id);
+}
+
+module.exports = {
+  getAllUsers,
+  saveUsers,
+  findUserByEmail,
+  findUserById
+};
